@@ -27,11 +27,11 @@ public class Account {
         //update the balance based on transaction type
         if (type.equalsIgnoreCase("deposit")){
             currentBalance += amount;
-        } else if (type.equalsIgnoreCase("withdrawal case")) {
+        } else if (type.equalsIgnoreCase("withdrawal")) {
             if (currentBalance >= amount){
                 currentBalance -= amount;
             } else{
-                System.out.println("Insuficient balance for withdrawal!");
+                System.out.println("Insufficient balance for withdrawal!");
                 return;
             }
         } else{
@@ -55,7 +55,7 @@ public class Account {
                 Holder Name: \{holderName}
                 Holder Address: \{holderAddress}
                 Opening Date: \{openingDate}
-                Current Balance: $\{currentBalance}""";
+                Current Balance: £\{currentBalance}""";
     }
 
 }

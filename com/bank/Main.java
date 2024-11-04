@@ -4,17 +4,20 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Bank Account Management System");
+        Account account = new Account("123455968", "John Doe", "123 Holloway Road", LocalDate.of(2024,11,01), 2000.50);
 
-        //create a sample account
-        Account testAccount = new Account(
-                "123456789",
-                "John Doe",
-                "123 Holloway Road",
-                LocalDate.of(2024,10,29),
-                1000.00
-        );
-        //display the account details
-        System.out.println(testAccount);
+        //Add transactions
+        account.addTransaction("deposit", 200);
+        account.addTransaction("withdrawal", 50);
+        account.addTransaction("deposit", 100);
+        account.addTransaction("withdrawal", 78);
+        account.addTransaction("deposit", 700); //this should push the first transaction out of the buffer
+
+        //display account and transactions
+        System.out.println(account);
+        System.out.println("\nLast Four Transactions: ");
+        for (Transaction transaction : account.getTransactionHistory()){
+            System.out.println(transaction);
+        }
     }
 }
