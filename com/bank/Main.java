@@ -11,7 +11,7 @@ public class Main {
         account.addTransaction("withdrawal", 50);
         account.addTransaction("deposit", 100);
         account.addTransaction("withdrawal", 78);
-        account.addTransaction("deposit", 700); //this should push the first transaction out of the buffer
+        account.addTransaction("deposit", 700);
 
         //display account and transactions
         System.out.println(account);

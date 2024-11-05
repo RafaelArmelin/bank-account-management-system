@@ -24,4 +24,22 @@ public class TransactionHistory {
         }
         return recentTransactions;
     }
+
+    //New method to get transactions sorted by amount
+    public Transaction[] getSortedTransactions(){
+        Transaction[] recentTransactions = getTransactions();
+
+        //Insertion Sort Algorithm for sorting by transaction amount
+        for(int i = 1; i < recentTransactions.length; i++){
+            Transaction key = recentTransactions[i];
+            int j = i - 1;
+
+            while (j >= 0 && recentTransactions[j].getTransactionAmount() > key.getTransactionAmount()){
+                recentTransactions[j + 1] = recentTransactions[j];
+                j = j - 1;
+            }
+            recentTransactions[j + 1] = key;
+        }
+        return recentTransactions;
+    }
 }
