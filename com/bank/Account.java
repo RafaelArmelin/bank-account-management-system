@@ -47,6 +47,10 @@ public class Account {
     public Transaction[] getTransactionHistory(){
         return transactionHistory.getTransactions();
     }
+    //Method to retrieve sorted transaction history
+    public Transaction[] getSortedTransactionHistory(){
+        return transactionHistory.getSortedTransactions();
+    }
 
     @Override
     public String toString() {

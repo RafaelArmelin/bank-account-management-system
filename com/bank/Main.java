@@ -13,10 +13,18 @@ public class Main {
         account.addTransaction("withdrawal", 78);
         account.addTransaction("deposit", 700);
 
-        //display account and transactions
+        //display account
         System.out.println(account);
-        System.out.println("\nLast Four Transactions: ");
+
+        //display the last four transactions (unsorted)
+        System.out.println("\nLast Four Transactions (Unsorted):");
         for (Transaction transaction : account.getTransactionHistory()){
+            System.out.println(transaction);
+        }
+
+        //display the last four transactions (sorted)
+        System.out.println("\nLast Four Transactions (Sorted):");
+        for (Transaction transaction : account.getSortedTransactionHistory()){
             System.out.println(transaction);
         }
     }
