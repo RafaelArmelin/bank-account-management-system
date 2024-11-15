@@ -53,7 +53,7 @@ public class BankAppGUI extends JFrame {
 
     // Method to display all accounts
     private void displayAccounts() {
-        displayArea.setText("All Accounts:\n");
+        displayArea.setText("ALL ACCOUNTS:\n\n");
         for (Account account : accounts) {
             displayArea.append(account.toString() + "\n");
         }
@@ -107,7 +107,8 @@ public class BankAppGUI extends JFrame {
                 "Amount: ", amountField
         };
 
-        int option = JOptionPane.showConfirmDialog(this, fields, "Add Transaction", JOptionPane.OK_CANCEL_OPTION);
+        int option = JOptionPane.showConfirmDialog(
+                this,fields, "Add Transaction", JOptionPane.OK_CANCEL_OPTION);
         if (option == JOptionPane.OK_OPTION) {
             String accountNumber = accountNumberField.getText();
             String transactionType = (String) transactionTypeField.getSelectedItem();
@@ -125,11 +126,16 @@ public class BankAppGUI extends JFrame {
 
     // Show the last four transactions for a specific account
     private void showLastTransactions() {
-        String accountNumber = JOptionPane.showInputDialog(this, "Enter Account Number:");
+        String accountNumber = JOptionPane.showInputDialog(
+                this,
+                "Enter Account Number:",
+                "Show Last Transactions",
+                JOptionPane.PLAIN_MESSAGE
+        );
         Account account = findAccountByNumber(accountNumber);
 
         if (account != null) {
-            displayArea.setText("Last Four Transactions:\n");
+            displayArea.setText("Last Four Transactions:\n\n");
             for (Transaction transaction : account.getTransactionHistory()) {
                 displayArea.append(transaction.toString() + "\n");
             }
@@ -140,11 +146,16 @@ public class BankAppGUI extends JFrame {
 
     // Show the last four transactions in sorted order for a specific account
     private void showSortedTransactions() {
-        String accountNumber = JOptionPane.showInputDialog(this, "Enter Account Number:");
+        String accountNumber = JOptionPane.showInputDialog(
+                this,
+                "Enter Account Number:",
+                "Show Sorted Transactions",
+                JOptionPane.PLAIN_MESSAGE
+        );
         Account account = findAccountByNumber(accountNumber);
 
         if (account != null) {
-            displayArea.setText("Last Four Transactions (Sorted by Amount):\n");
+            displayArea.setText("Last Four Transactions (Sorted by Amount):\n\n");
             for (Transaction transaction : account.getSortedTransactionHistory()) {
                 displayArea.append(transaction.toString() + "\n");
             }
@@ -155,7 +166,12 @@ public class BankAppGUI extends JFrame {
 
     // Show Delete Account Form
     private void showDeleteAccountForm() {
-        String accountNumber = JOptionPane.showInputDialog(this, "Enter Account Number to Delete:");
+        String accountNumber = JOptionPane.showInputDialog(
+                this,
+                "Enter Account Number to Delete:",
+                "Delete Account",
+                JOptionPane.PLAIN_MESSAGE
+        );
         Account account = findAccountByNumber(accountNumber);
 
         if (account != null) {

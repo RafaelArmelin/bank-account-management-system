@@ -65,6 +65,6 @@ public class Account {
                 "\nHolder Name: " + holderName +
                 "\nHolder Address: " + holderAddress +
                 "\nOpening Date: " + openingDate +
-                "\nCurrent Balance: £" + currentBalance;
+                "\nCurrent Balance: £" + currentBalance + "\n\n";
     }
 }
