@@ -80,6 +80,12 @@ public class BankAppGUI extends JFrame {
             String address = addressField.getText();
             double balance = Double.parseDouble(balanceField.getText());
 
+            // check if the account number already exists
+            if (findAccountByNumber(accountNumber) != null) {
+                JOptionPane.showMessageDialog(this, "Account number already exists! Please choose a different account number", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             Account account = new Account(accountNumber, name, address, LocalDate.now(), balance);
             accounts.add(account);
             displayArea.setText("Account Created Successfully!\n");
