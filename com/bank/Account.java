@@ -25,6 +25,13 @@ public class Account {
         return accountNumber;
     }
 
+    // New method to get the current balance
+
+
+    public double getCurrentBalance() {
+        return this.currentBalance;
+    }
+
     // Method to add a transaction
     public void addTransaction(String type, double amount) {
         LocalDate date = LocalDate.now();

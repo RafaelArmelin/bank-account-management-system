@@ -116,8 +116,17 @@ public class BankAppGUI extends JFrame {
 
             Account account = findAccountByNumber(accountNumber);
             if (account != null) {
-                account.addTransaction(transactionType, amount);
-                displayArea.setText("Transaction added successfully!\n");
+                if (transactionType.equalsIgnoreCase("Deposit")){
+                    account.addTransaction("deposit", amount);
+                    displayArea.setText("Deposit transaction added successfully!\n");
+                } else if (transactionType.equalsIgnoreCase("withdrawal")) {
+                    //check if there is sufficient balance
+                    if (account.getCurrentBalance() >= amount) {
+                        displayArea.setText("Withdrawal transaction added successfully!\n");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Insuficient balance for withdrawal.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
             } else {
                 displayArea.setText("Account not found.\n");
             }

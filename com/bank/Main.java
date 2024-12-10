@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Account account = new Account("123455968", "John Doe", "123 Holloway Road", LocalDate.of(2024,11,01), 2000.50);
+        Account account = new Account("123455968", "John Doe", "123 Holloway Road", LocalDate.of(2024,11,01), 0.00);
 
         //Add transactions
 //        account.addTransaction("deposit", 200);
